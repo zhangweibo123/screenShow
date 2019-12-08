@@ -133,18 +133,38 @@
                   <img class="rightbottom" src="../assets/img/border3.png" alt="">
                   <img class="leftBottom" src="../assets/img/border4.png" alt="">
                   <div class="bigTitle">加工不良和毛坯不良占比</div>
-                  <div id="bigchart1" style="width: 2.5rem;height: 1.32rem;margin-top: 1.1rem;float: left;margin-left: 0.4rem;"></div>
-                  <div id="bigchart2" style="width: 2.5rem;height: 1.32rem;margin-top: 1.1rem;float: left;margin-left: 0.4rem;"></div>
-                  <div id="bigchart3" style="width: 2.5rem;height: 1.32rem;margin-top: 1.1rem;float: left;margin-left: 0.4rem;"></div>
+                  <div id="bigchart1" style="width: 2.6rem;height:1.5rem;margin-top: 1.1rem;float: left;margin-left: 0.4rem;"></div>
+                  <div id="bigchart2" style="width: 2.6rem;height:1.5rem;margin-top: 1.1rem;float: left;margin-left: 0.4rem;"></div>
+                  <div id="bigchart3" style="width: 2.6rem;height:1.5rem;margin-top: 1.1rem;float: left;margin-left: 0.4rem;"></div>
                   <div>
-                      <span style="position: absolute;top: 1rem;left: 1.4rem;font-size: 0.2rem;color: #0B8CFF;">C10</span>
-                      <span style="position: absolute;top: 1rem;left: 4.32rem;font-size: 0.2rem;color: #04D7F9;">C13</span>
-                      <span style="position: absolute;top: 1rem;left: 7.05rem;font-size: 0.2rem;color: #5B37CD;">CSS45T3</span>
-                      <div style="position: absolute;left: 6rem;top: 0.7rem;vertical-align: bottom;">
-                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #F86D7E ;border-radius: 2px;margin-right: 0.2rem;"></span>
-                        <span style="display: inline-block;float: left ;font-size: 0.14rem;margin-right: 0.5rem;line-height: 0.14rem;">加工不良</span>
-                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #22E8A0 ;border-radius: 2px;margin-right: 0.2rem;"></span>
-                        <span style="display: inline-block;float: left ;font-size: 0.14rem;line-height: 0.14rem;">毛坯不良</span>
+                      <span style="position: absolute;top: 1rem;left: 1.5rem;font-size: 0.2rem;color: #0B8CFF;">C10</span>
+                      <span style="position: absolute;top: 1rem;left: 4.5rem;font-size: 0.2rem;color: #04D7F9;">C13</span>
+                      <span style="position: absolute;top: 1rem;left: 7.2rem;font-size: 0.2rem;color: #5B37CD;">CSS45T3</span>
+                      <div v-if="charData" style="font-size: 10px;position: absolute;top: 3.1rem;left: 1rem;">
+                        <p>加工不良 数量{{charData.rejectRatioMap.C10.processReject.number}} 占比:{{charData.rejectRatioMap.C10.processReject.ratio}}</p>
+                        <p>毛坯不良 数量{{charData.rejectRatioMap.C10.workBlankReject.number}} 占比:{{charData.rejectRatioMap.C10.workBlankReject.ratio}}</p>
+                      </div>
+                     <div v-if="charData" style="font-size: 10px;position: absolute;top: 3.1rem;left: 4rem;">
+                        <p>加工不良 数量{{charData.rejectRatioMap.C13.processReject.number}} 占比:{{charData.rejectRatioMap.C13.processReject.ratio}}</p>
+                        <p>毛坯不良 数量{{charData.rejectRatioMap.C13.workBlankReject.number}} 占比:{{charData.rejectRatioMap.C13.workBlankReject.ratio}}</p>
+                      </div>
+                      <div v-if="charData" style="font-size: 10px;position: absolute;top: 3.1rem;left: 7rem;">
+                        <p>加工不良 数量{{charData.rejectRatioMap.CSS45T3.processReject.number}} 占比:{{charData.rejectRatioMap.CSS45T3.processReject.ratio}}</p>
+                        <p>毛坯不良 数量{{charData.rejectRatioMap.CSS45T3.workBlankReject.number}} 占比:{{charData.rejectRatioMap.CSS45T3.workBlankReject.ratio}}</p>
+                      </div>
+                      <div style="position: absolute;left: 5rem;top: 0.7rem;vertical-align: bottom;">
+                        <span style="display: inline-block;float: left ;font-size: 0.14rem;line-height: 0.14rem;margin-right: 0.2rem;">毛坯不良</span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #70e1ff ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #b9eb78 ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #4693eb ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #f5a41f ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #f3e60e ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #d23878 ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;float: left ;font-size: 0.14rem;margin-right: 0.2rem;line-height: 0.14rem;">加工不良</span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #00d8ff ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #900ffd ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #34dab2 ;border-radius: 2px;margin-right: 0.1rem;"></span>
+                        <span style="display: inline-block;width: 0.14rem;height: 0.14rem;float: left ;background: #4898c9 ;border-radius: 2px;margin-right: 0.1rem;"></span>
                       </div>
                   </div>
 
@@ -216,7 +236,6 @@ export default {
             let second = date.getSeconds();
             let nowDete = `${year}年${month}月${day}日 星期${self.week[week]} ${hour}:${minute}:${second}`
             self.date = nowDete
-            console.log(self)
           },
         getChartData:function(){
           $axios.get('https://atomtran.com:8443/app/rest/v2/services/mes_ProduceDashboardService/getDashBoardData').then(function(res){
@@ -339,19 +358,32 @@ export default {
                       ]
              });
              bigchart1.setOption({
-                  legend: {
-                      orient: 'vertical',
-                      x: 'left',
-                      data:['直接访问','邮件营销']
-                  },
                   series: [
                             {
                                 type:'pie',
-                                radius: ['78%', '99%'],
                                 hoverOffset: 1,
+                                labelLine : {
+                                    normal : {
+                                      length : 10,
+                                      length2 : 20,
+                                    },
+                                },
+                                label: {
+                                    fontSize : 10,
+                                },
+                                radius : ['90%', '75%'],
                                 data:[
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject), name:self.charData.rejectRatioMap.C10.processReject,itemStyle:{color:'#F86D7E '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject), name:self.charData.rejectRatioMap.C10.workBlankReject,itemStyle:{color:'#22E8A0'}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.C10.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.C10.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.C10.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.C10.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.C10.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
+
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
                                 ]
                             }
                       ]
@@ -360,11 +392,29 @@ export default {
                   series: [
                             {
                                 type:'pie',
-                                radius: ['78%', '99%'],
                                 hoverOffset: 1,
+                                labelLine : {
+                                    normal : {
+                                      length : 10,
+                                      length2 : 20,
+                                    },
+                                },
+                                label: {
+                                    fontSize : 10,
+                                },
+                                radius : ['90%', '75%'],
                                 data:[
-                                    {value:parseInt(self.charData.rejectRatioMap.C13.processReject), name:self.charData.rejectRatioMap.C13.processReject,itemStyle:{color:'#F86D7E '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject), name:self.charData.rejectRatioMap.C13.workBlankReject,itemStyle:{color:'#22E8A0'}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.C13.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.C13.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.C13.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.C13.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.C13.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
+
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
+                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
                                 ]
                             }
                       ]
@@ -373,11 +423,29 @@ export default {
                   series: [
                             {
                                 type:'pie',
-                                radius: ['78%', '99%'],
                                 hoverOffset: 1,
+                                labelLine : {
+                                   normal : {
+                                     length : 10,
+                                     length2 : 20,
+                                   },
+                                },
+                                label: {
+                                   fontSize : 10,
+                                },
+                                radius : ['90%', '75%'],
                                 data:[
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject), name:self.charData.rejectRatioMap.CSS45T3.processReject,itemStyle:{color:'#F86D7E '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject,itemStyle:{color:'#22E8A0'}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
+
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
                                 ]
                             }
                       ]
