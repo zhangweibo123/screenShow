@@ -140,15 +140,15 @@
                       <span style="position: absolute;top: 1rem;left: 1.5rem;font-size: 0.2rem;color: #0B8CFF;">C10</span>
                       <span style="position: absolute;top: 1rem;left: 4.5rem;font-size: 0.2rem;color: #04D7F9;">C13</span>
                       <span style="position: absolute;top: 1rem;left: 7.2rem;font-size: 0.2rem;color: #5B37CD;">CSS45T3</span>
-                      <div v-if="charData" style="font-size: 10px;position: absolute;top: 3.1rem;left: 1rem;">
+                      <div v-if="charData" style="font-size: 0.1rem;position: absolute;top: 3.1rem;left: 1rem;">
                         <p>加工不良 数量{{charData.rejectRatioMap.C10.processReject.number}} 占比:{{charData.rejectRatioMap.C10.processReject.ratio}}</p>
                         <p>毛坯不良 数量{{charData.rejectRatioMap.C10.workBlankReject.number}} 占比:{{charData.rejectRatioMap.C10.workBlankReject.ratio}}</p>
                       </div>
-                     <div v-if="charData" style="font-size: 10px;position: absolute;top: 3.1rem;left: 4rem;">
+                     <div v-if="charData" style="font-size: 0.1rem;position: absolute;top: 3.1rem;left: 4rem;">
                         <p>加工不良 数量{{charData.rejectRatioMap.C13.processReject.number}} 占比:{{charData.rejectRatioMap.C13.processReject.ratio}}</p>
                         <p>毛坯不良 数量{{charData.rejectRatioMap.C13.workBlankReject.number}} 占比:{{charData.rejectRatioMap.C13.workBlankReject.ratio}}</p>
                       </div>
-                      <div v-if="charData" style="font-size: 10px;position: absolute;top: 3.1rem;left: 7rem;">
+                      <div v-if="charData" style="font-size: 0.1rem;position: absolute;top: 3.1rem;left: 7rem;">
                         <p>加工不良 数量{{charData.rejectRatioMap.CSS45T3.processReject.number}} 占比:{{charData.rejectRatioMap.CSS45T3.processReject.ratio}}</p>
                         <p>毛坯不良 数量{{charData.rejectRatioMap.CSS45T3.workBlankReject.number}} 占比:{{charData.rejectRatioMap.CSS45T3.workBlankReject.ratio}}</p>
                       </div>
@@ -365,7 +365,7 @@ export default {
                                 labelLine : {
                                     normal : {
                                       length : 10,
-                                      length2 : 20,
+                                      length2 : 10,
                                     },
                                 },
                                 label: {
@@ -395,8 +395,8 @@ export default {
                                 hoverOffset: 1,
                                 labelLine : {
                                     normal : {
-                                      length : 10,
-                                      length2 : 20,
+                                      length :10,
+                                      length2 : 10,
                                     },
                                 },
                                 label: {
@@ -427,7 +427,7 @@ export default {
                                 labelLine : {
                                    normal : {
                                      length : 10,
-                                     length2 : 20,
+                                     length2 : 10,
                                    },
                                 },
                                 label: {
