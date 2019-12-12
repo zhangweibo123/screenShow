@@ -9,7 +9,7 @@
           <div class="date">
              {{date}}
            </div>
-           <div class="title">生产看板</div>
+           <div class="title">生产看板 </div>
       </div>
       <div class="content">
           <div class="centre">
