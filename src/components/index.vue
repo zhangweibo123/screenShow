@@ -205,11 +205,34 @@ export default {
   mounted(){
     let self = this
     this.getChartData()
+    this.socker()
     setInterval(() => {
         self.getChartData()
     }, 60000)
   },
   methods:{
+        socker : function(){
+            var hostname = '118.190.37.4',
+                port = 15675,
+                path = '/ws',
+                clientId = 'client-mao2080',
+                timeout = 5,
+                keepAlive = 100,
+                cleanSession = false,
+                ssl = false,
+            client = new Paho.Client(hostname, port,path, clientId);
+             client.connect({
+               userName: 'admin',
+               password: 'tripllen@602',
+               useSSL : true,
+               onSuccess(){
+                 console.log('success')
+               },
+               onFailure(){
+                 console.log('failed')
+               }
+             })
+        },
         // 自适应rem
         setFontSize: function (doc, win) {
           var docEl = doc.documentElement
