@@ -261,9 +261,9 @@ export default {
             self.date = nowDete
           },
         getChartData:function(){
-          // $axios.get('http://118.190.37.4:8020/app/rest/v2/services/ymt_ProduceDashboardService/getDashBoardData').then(function(res){
-            $axios.get('https://atomtran.com:8443/app/rest/v2/services/mes_ProduceDashboardService/getDashBoardData').then(function(res){
-              // this.charData = res.data.data
+          $axios.get('http://118.190.37.4:8020/app/rest/v2/services/ymt_ProduceDashboardService/getDashBoardData').then(function(res){
+            // $axios.get('https://atomtran.com:8443/app/rest/v2/services/mes_ProduceDashboardService/getDashBoardData').then(function(res){
+              this.charData = res.data.data
               this.charData = JSON.parse(res.data).data
               console.log(this.charData)
               this.drawsmall();
