@@ -263,7 +263,7 @@ export default {
         getChartData:function(){
           $axios.get('http://118.190.37.4:8020/app/rest/v2/services/ymt_ProduceDashboardService/getDashBoardData').then(function(res){
             // $axios.get('https://atomtran.com:8443/app/rest/v2/services/mes_ProduceDashboardService/getDashBoardData').then(function(res){
-              this.charData = res.data.data
+              // this.charData = res.data.data
               this.charData = JSON.parse(res.data).data
               console.log(this.charData)
               this.drawsmall();
@@ -475,6 +475,67 @@ export default {
                             }
                       ]
              });
+             let leftChartArr = []
+             this.charData.sevenDaysDataMap.date.forEach(function(item,index){
+                  leftChartArr.push({
+                    value:item,
+                    textStyle:{color:'white'}
+                  })
+             })
+             let serveChartArr = []
+             if(self.charData.sevenDaysDataMap.finished_C10.length > 0){
+               serveChartArr.push(
+                     {
+                         name:'C10(实际产量)',
+                         type:'bar',
+                         stack: 'C10',
+                         data:self.charData.sevenDaysDataMap.finished_C10,
+                         itemStyle:{color:'#0B8CFF'}
+                     },
+                     {
+                         name:'C10(计划产量)',
+                         type:'bar',
+                         stack: 'C10',
+                         data:self.charData.sevenDaysDataMap.plan_C10,
+                         itemStyle:{color:'#22E8A0'}
+                     })
+             }
+             if(self.charData.sevenDaysDataMap.finished_C13.length > 0){
+                serveChartArr.push(
+                    {
+                         name:'C13(实际产量)',
+                         type:'bar',
+                         stack: 'C13',
+                         data:self.charData.sevenDaysDataMap.finished_C13,
+                         itemStyle:{color:'#04D7F9'}
+                     },
+                     {
+                         name:'C13(计划产量)',
+                         type:'bar',
+                         stack: 'C13',
+                         data:self.charData.sevenDaysDataMap.plan_C13,
+                         itemStyle:{color:'#22E8A0'}
+                     },
+                )
+             }
+             if(self.charData.sevenDaysDataMap.finished_CSS45T3.length > 0){
+                serveChartArr.push(
+                    {
+                         name:'CSS45T3(实际产量)',
+                         type:'bar',
+                         stack: 'CSS45T3',
+                         data:self.charData.sevenDaysDataMap.finished_CSS45T3,
+                         itemStyle:{color:'#5B37CD'}
+                     },
+                     {
+                         name:'CSS45T3(计划产量)',
+                         type:'bar',
+                         stack: 'CSS45T3',
+                         data:self.charData.sevenDaysDataMap.plan_CSS45T3,
+                         itemStyle:{color:'#22E8A0'}
+                     }
+                )
+             }
              bigchartLeft.setOption({
                   tooltip : {
                          trigger: 'axis',
@@ -496,15 +557,7 @@ export default {
                      xAxis : [
                          {
                              type : 'category',
-                             data :[
-                               {value:self.charData.sevenDaysDataMap.date[0],textStyle:{color:'white'}},
-                               {value:self.charData.sevenDaysDataMap.date[1],textStyle:{color:'white'}},
-                               {value:self.charData.sevenDaysDataMap.date[2],textStyle:{color:'white'}},
-                               {value:self.charData.sevenDaysDataMap.date[3],textStyle:{color:'white'}},
-                               {value:self.charData.sevenDaysDataMap.date[4],textStyle:{color:'white'}},
-                               {value:self.charData.sevenDaysDataMap.date[5],textStyle:{color:'white'}},
-                               {value:self.charData.sevenDaysDataMap.date[6],textStyle:{color:'white'}},
-                             ]
+                             data :leftChartArr
                          },
                      ],
                      yAxis : [
@@ -519,52 +572,7 @@ export default {
 
                      ],
 
-                     series : [
-                         {
-                             name:'C10(实际产量)',
-                             type:'bar',
-                             stack: 'C10',
-                             data:self.charData.sevenDaysDataMap.finished_C10,
-                             itemStyle:{color:'#0B8CFF'}
-                         },
-                         {
-                             name:'C10(计划产量)',
-                             type:'bar',
-                             stack: 'C10',
-                             data:self.charData.sevenDaysDataMap.plan_C10,
-                             itemStyle:{color:'#22E8A0'}
-                         },
-                         {
-                              name:'C13(实际产量)',
-                              type:'bar',
-                              stack: 'C13',
-                              data:self.charData.sevenDaysDataMap.finished_C13,
-                              itemStyle:{color:'#04D7F9'}
-                          },
-                          {
-                              name:'C13(计划产量)',
-                              type:'bar',
-                              stack: 'C13',
-                              data:self.charData.sevenDaysDataMap.plan_C13,
-                              itemStyle:{color:'#22E8A0'}
-                          },
-                          {
-                               name:'CSS45T3(实际产量)',
-                               type:'bar',
-                               stack: 'CSS45T3',
-                               data:self.charData.sevenDaysDataMap.finished_CSS45T3,
-                               itemStyle:{color:'#5B37CD'}
-                           },
-                           {
-                               name:'CSS45T3(计划产量)',
-                               type:'bar',
-                               stack: 'CSS45T3',
-                               data:self.charData.sevenDaysDataMap.plan_CSS45T3,
-                               itemStyle:{color:'#22E8A0'}
-                           },
-
-
-                     ]
+                     series : serveChartArr
              });
              centerChart1.setOption({
                      tooltip : {
