@@ -13,17 +13,12 @@
       </div>
       <div class="content">
           <div class="centre">
-              <div id="chartCenter" style="width: 1.9rem;height: 1.9rem;margin-top: 2.25rem;margin-left:2.51rem;float: left;"></div>
+              <div id="chartCenter" style="width: 3.2rem;height: 3.2rem;margin-top: 1.84rem;margin-left:2rem;float: left;"></div>
               <div  v-if="charData">
-                   <span style="position: absolute;font-size: 0.2rem;top: 2.69rem;left: 2.95rem;">本周已完成</span>
-                   <span style="position: absolute;font-size: 0.2rem;top: 4.3rem;left: 2.8rem;">周计划 :</span>
-                   <span style="font-size: 0.64rem;;top: 3.1rem;left: 2.9rem;position: absolute;">{{charData.allWeekPlanMap.finished}}</span>
-                   <span style="position: absolute;font-size: 0.3rem;top: 4.21rem;left: 3.6rem;">{{charData.allWeekPlanMap.plan}}</span>
-                   <span style="position: absolute;top: 3.9rem;left: 2.6rem;transform:rotate(50deg);">0</span>
-                   <span style="position: absolute;top: 3.15rem;left: 2.2rem;transform:rotate(270deg);">200</span>
-                   <span style="position: absolute;top: 2rem;left: 3.32rem;">400</span>
-                   <span style="position: absolute;top: 3.15rem;left: 4.4rem;transform:rotate(90deg);">600</span>
-                   <span style="position: absolute;top: 3.9rem;left: 4.16rem;transform:rotate(120deg);">800</span>
+                   <span style="position: absolute;font-size: 0.25rem;top: 2.75rem;left: 3rem;">本周已完成</span>
+                   <span style="position: absolute;font-size: 0.2rem;top: 4.6rem;left:3rem;">周计划 :</span>
+                   <span style="font-size: 0.64rem;;top: 3.1rem;left: 3.4rem;position: absolute;">{{charData.allWeekPlanMap.finished}}</span>
+                   <span style="position: absolute;font-size: 0.3rem;top: 4.54rem;left: 3.8rem;">{{charData.allWeekPlanMap.plan}}</span>
               </div>
           </div>
           <div>
@@ -284,16 +279,31 @@ export default {
               let centerChart1 = this.$echarts.init(document.getElementById('centerChart1'))
               let centerChart2 = this.$echarts.init(document.getElementById('centerChart2'))
               let chartCenter = this.$echarts.init(document.getElementById('chartCenter'))
+
+              // let x = self.charData.allWeekPlanMap.finished
+              // let y = self.charData.allWeekPlanMap.plan - self.charData.allWeekPlanMap.finished
+              if(self.charData.allWeekPlanMap.plan == 0){
+                  var x = 0
+                  var y = 10
+                  var z = 10
+              }else{
+                  var x = self.charData.allWeekPlanMap.finished
+                  var y = self.charData.allWeekPlanMap.plan - self.charData.allWeekPlanMap.finished
+                  var z = 30*(x + y)/106
+
+              }
               chartCenter.setOption({
                   series: [
                             {
                                 type:'pie',
-                                radius: ['90%', '99%'],
+                                radius: ['72%', '99%'],
                                 hoverOffset: 1,
+                                 startAngle:233,
                                 labelLine: {normal: {show: false}},
                                 data:[
-                                    {value:self.charData.allWeekPlanMap.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
-                                    {value:self.charData.allWeekPlanMap.plan - self.charData.allWeekPlanMap.finished, name:'未完成',itemStyle:{color:'#11276C'}},
+                                    {value:x, name:'',itemStyle:{color:'#62ABFF'}},
+                                    {value:y, name:'',itemStyle:{color:'rgba(0,0,0,0)'}},
+                                    {value:z, name:'',itemStyle:{color:'rgba(0,0,0,0)'}},
                                 ]
                             }
                       ]
