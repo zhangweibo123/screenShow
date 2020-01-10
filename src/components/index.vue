@@ -17,7 +17,7 @@
               <div  v-if="charData">
                    <span style="position: absolute;font-size: 0.25rem;top: 2.75rem;left: 3rem;">本周已完成</span>
                    <span style="position: absolute;font-size: 0.2rem;top: 4.6rem;left:3rem;">周计划 :</span>
-                   <span style="font-size: 0.64rem;;top: 3.1rem;left: 3.4rem;position: absolute;">{{charData.allWeekPlanMap.finished}}</span>
+                   <span class="textCenter" style="font-size: 0.64rem;;top: 3.1rem;left: 3.1rem;position: absolute;">{{charData.allWeekPlanMap.finished}}</span>
                    <span style="position: absolute;font-size: 0.3rem;top: 4.54rem;left: 3.8rem;">{{charData.allWeekPlanMap.plan}}</span>
               </div>
           </div>
@@ -56,7 +56,7 @@
                    <div id="smallChart4"  style="width: 1.1rem;height: 1.1rem;margin-top: 0.1rem;margin-left: 1.5rem;float: left;"></div>
                    <div class="smallTextContent" v-if="charData">
                         <span class="inlineBlock" style="position: absolute;top: 0.7rem;left: 1.07rem;font-size: 0.24rem;">{{Number(charData.planTofinishMap.C13.weekPlan.finished)  + Number(charData.planTofinishMap.C13.weekPlan.unFinished)}}</span>
-                        <span class="inlineBlock" style="position: absolute;top: 1.1rem;left: 1.15rem;font-size: 0.09rem;">周计划</span>
+                        <span class="inlineBlock" style="position: absolute;top: 1.1rem;left: 1.1rem;font-size: 0.09rem;">周计划</span>
                         <span style="color: #0B8CFF;font-size: 0.2rem;position: absolute;top: 0.5rem;left: 2.1rem;">{{charData.planTofinishMap.C13.weekPlan.finished}}个</span>
                         <span style="color: white;font-size: 0.12rem;position: absolute;top: 0.8rem;left: 2.1rem;">已完成</span>
                         <span style="color: white;font-size: 0.2rem;position: absolute;top: 1.05rem;left: 2.1rem;">{{charData.planTofinishMap.C13.weekPlan.unFinished}}个</span>
@@ -79,15 +79,15 @@
                    <div id="smallChart5" style="width: 1.1rem;height: 1.1rem;margin-top: 0.1rem;margin-left: 0.8rem;float: left;"></div>
                    <div id="smallChart6"  style="width: 1.1rem;height: 1.1rem;margin-top: 0.1rem;margin-left: 1.5rem;float: left;"></div>
                    <div class="smallTextContent" v-if="charData">
-                        <span style="position: absolute;top: 0.7rem;left: 1.07rem;font-size: 0.24rem;">{{Number(charData.planTofinishMap.CSS45T3.weekPlan.finished)  + Number(charData.planTofinishMap.CSS45T3.weekPlan.unFinished)}}</span>
-                        <span style="position: absolute;top: 1.1rem;left: 1.15rem;font-size: 0.09rem;">周计划</span>
+                        <span class="inlineBlock" style="position: absolute;top: 0.7rem;left: 1.07rem;font-size: 0.24rem;">{{Number(charData.planTofinishMap.CSS45T3.weekPlan.finished)  + Number(charData.planTofinishMap.CSS45T3.weekPlan.unFinished)}}</span>
+                        <span class="inlineBlock" style="position: absolute;top: 1.1rem;left: 1.07rem;font-size: 0.09rem;">周计划</span>
                         <span style="color: #0B8CFF;font-size: 0.2rem;position: absolute;top: 0.5rem;left: 2.1rem;">{{charData.planTofinishMap.CSS45T3.weekPlan.finished}}个</span>
                         <span style="color: white;font-size: 0.12rem;position: absolute;top: 0.8rem;left: 2.1rem;">已完成</span>
-                        <span style="color: white;font-size: 0.2rem;position: absolute;top: 1.05rem;left: 2.1rem;">{{charData.planTofinishMap.C10.weekPlan.unFinished}}个</span>
+                        <span style="color: white;font-size: 0.2rem;position: absolute;top: 1.05rem;left: 2.1rem;">{{charData.planTofinishMap.CSS45T3.weekPlan.unFinished}}个</span>
                         <span style="color: white;font-size: 0.12rem;position: absolute;top: 1.28rem;left: 2.1rem;">未完成</span>
 
-                        <span style="position: absolute;top: 0.7rem;left: 3.68rem;font-size: 0.24rem;">{{Number(charData.planTofinishMap.CSS45T3.dayPlan.finished)  + Number(charData.planTofinishMap.CSS45T3.dayPlan.unFinished)}}</span>
-                        <span style="position: absolute;top: 1.1rem;left: 3.79rem;font-size: 0.09rem;">周计划</span>
+                        <span  class="inlineBlock" style="position: absolute;top: 0.7rem;left: 3.68rem;font-size: 0.24rem;">{{Number(charData.planTofinishMap.CSS45T3.dayPlan.finished)  + Number(charData.planTofinishMap.CSS45T3.dayPlan.unFinished)}}</span>
+                        <span  class="inlineBlock" style="position: absolute;top: 1.1rem;left: 3.7rem;font-size: 0.09rem;">周计划</span>
                         <span style="color: #0B8CFF;font-size: 0.2rem;position: absolute;top: 0.5rem;left: 4.7rem;">{{charData.planTofinishMap.CSS45T3.dayPlan.finished}}个</span>
                         <span style="color: white;font-size: 0.12rem;position: absolute;top: 0.8rem;left: 4.7rem;">已完成</span>
                         <span style="color: white;font-size: 0.2rem;position: absolute;top: 1.05rem;;left: 4.7rem;">{{charData.planTofinishMap.CSS45T3.dayPlan.unFinished}}个</span>
@@ -308,6 +308,17 @@ export default {
                             }
                       ]
              });
+             let smallChart1data = ''
+             if(self.charData.planTofinishMap.C10.weekPlan.finished == 0 && self.charData.planTofinishMap.C10.weekPlan.unFinished == 0){
+               smallChart1data = [
+                    {value:self.charData.planTofinishMap.C10.weekPlan.finished, name:'已完成',itemStyle:{color:'#415695'}},
+                ]
+             }else{
+               smallChart1data = [
+                    {value:self.charData.planTofinishMap.C10.weekPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
+                    {value:self.charData.planTofinishMap.C10.weekPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
+                ]
+             }
              smallChart1.setOption({
                   series: [
                             {
@@ -315,13 +326,21 @@ export default {
                                 radius: ['90%', '99%'],
                                 hoverOffset: 1,
                                 labelLine: {normal: {show: false}},
-                                data:[
-                                    {value:self.charData.planTofinishMap.C10.weekPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
-                                    {value:self.charData.planTofinishMap.C10.weekPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
-                                ]
+                                data:smallChart1data
                             }
                       ]
              });
+             let smallChart2data = ''
+             if(self.charData.planTofinishMap.C10.dayPlan.finished == 0 && self.charData.planTofinishMap.C10.dayPlan.unFinished == 0){
+               smallChart2data = [
+                    {value:self.charData.planTofinishMap.C10.dayPlan.finished, name:'已完成',itemStyle:{color:'#415695'}},
+                ]
+             }else{
+               smallChart2data = [
+                    {value:self.charData.planTofinishMap.C10.dayPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
+                    {value:self.charData.planTofinishMap.C10.dayPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
+                ]
+             }
              smallChart2.setOption({
                   series: [
                             {
@@ -329,13 +348,21 @@ export default {
                                 radius: ['90%', '99%'],
                                 hoverOffset: 1,
                                 labelLine: {normal: {show: false}},
-                                data:[
-                                    {value:self.charData.planTofinishMap.C10.dayPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
-                                    {value:self.charData.planTofinishMap.C10.dayPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
-                                ]
+                                data:smallChart2data
                             }
                       ]
              });
+             let smallChart3data = ''
+             if(self.charData.planTofinishMap.C13.weekPlan.finished == 0 && self.charData.planTofinishMap.C13.weekPlan.unFinished == 0){
+               smallChart3data = [
+                    {value:self.charData.planTofinishMap.C13.weekPlan.finished, name:'已完成',itemStyle:{color:'#415695'}},
+                ]
+             }else{
+               smallChart3data = [
+                    {value:self.charData.planTofinishMap.C13.weekPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
+                    {value:self.charData.planTofinishMap.C13.weekPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
+                ]
+             }
              smallChart3.setOption({
                   series: [
                             {
@@ -343,13 +370,21 @@ export default {
                                 radius: ['90%', '99%'],
                                 hoverOffset: 1,
                                 labelLine: {normal: {show: false}},
-                                data:[
-                                    {value:self.charData.planTofinishMap.C13.weekPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
-                                    {value:self.charData.planTofinishMap.C13.weekPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
-                                ]
+                                data:smallChart3data
                             }
                       ]
              });
+             let smallChart4data = ''
+             if(self.charData.planTofinishMap.C13.dayPlan.finished == 0 && self.charData.planTofinishMap.C13.dayPlan.unFinished == 0){
+               smallChart4data = [
+                    {value:self.charData.planTofinishMap.C13.dayPlan.finished, name:'已完成',itemStyle:{color:'#415695'}},
+                ]
+             }else{
+               smallChart4data = [
+                    {value:self.charData.planTofinishMap.C13.dayPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
+                    {value:self.charData.planTofinishMap.C13.dayPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
+                ]
+             }
              smallChart4.setOption({
                   series: [
                             {
@@ -357,13 +392,21 @@ export default {
                                 radius: ['90%', '99%'],
                                 hoverOffset: 1,
                                 labelLine: {normal: {show: false}},
-                                data:[
-                                    {value:self.charData.planTofinishMap.C13.dayPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
-                                    {value:self.charData.planTofinishMap.C13.dayPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
-                                ]
+                                data:smallChart4data
                             }
                       ]
              });
+             let smallChart5data = ''
+             if(self.charData.planTofinishMap.CSS45T3.weekPlan.finished == 0 && self.charData.planTofinishMap.CSS45T3.weekPlan.unFinished == 0){
+               smallChart5data = [
+                    {value:self.charData.planTofinishMap.CSS45T3.weekPlan.finished, name:'已完成',itemStyle:{color:'#415695'}},
+                ]
+             }else{
+               smallChart5data = [
+                    {value:self.charData.planTofinishMap.CSS45T3.weekPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
+                    {value:self.charData.planTofinishMap.CSS45T3.weekPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
+                ]
+             }
              smallChart5.setOption({
                   series: [
                             {
@@ -371,13 +414,21 @@ export default {
                                 radius: ['90%', '99%'],
                                 hoverOffset: 1,
                                 labelLine: {normal: {show: false}},
-                                data:[
-                                    {value:self.charData.planTofinishMap.CSS45T3.weekPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
-                                    {value:self.charData.planTofinishMap.CSS45T3.weekPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
-                                ]
+                                data:smallChart5data
                             }
                       ]
              });
+             let smallChart6data = ''
+             if(self.charData.planTofinishMap.CSS45T3.dayPlan.finished == 0 && self.charData.planTofinishMap.CSS45T3.dayPlan.unFinished == 0){
+               smallChart6data = [
+                    {value:self.charData.planTofinishMap.CSS45T3.dayPlan.finished, name:'已完成',itemStyle:{color:'#415695'}},
+                ]
+             }else{
+               smallChart6data = [
+                    {value:self.charData.planTofinishMap.CSS45T3.dayPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
+                    {value:self.charData.planTofinishMap.CSS45T3.dayPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
+                ]
+             }
              smallChart6.setOption({
                   series: [
                             {
@@ -385,10 +436,7 @@ export default {
                                 radius: ['90%', '99%'],
                                 hoverOffset: 1,
                                 labelLine: {normal: {show: false}},
-                                data:[
-                                    {value:self.charData.planTofinishMap.CSS45T3.dayPlan.finished, name:'已完成',itemStyle:{color:'#62ABFF'}},
-                                    {value:self.charData.planTofinishMap.CSS45T3.dayPlan.unFinished, name:'未完成',itemStyle:{color:'white'}},
-                                ]
+                                data:smallChart6data
                             }
                       ]
              });
@@ -396,17 +444,11 @@ export default {
                   series: [
                             {
                                 type:'pie',
-                                hoverOffset: 1,
-                                labelLine : {
-                                    normal : {
-                                      length : 10,
-                                      length2 : 10,
-                                    },
-                                },
-                                label: {
-                                    fontSize : 10,
-                                },
                                 radius : ['90%', '75%'],
+                                hoverOffset: 1,
+                                label: {
+                                    show:false
+                                },
                                 data:[
                                     {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.C10.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
                                     {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.C10.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
@@ -434,8 +476,11 @@ export default {
                                       length2 : 10,
                                     },
                                 },
+                                // label: {
+                                //     fontSize : 10,
+                                // },
                                 label: {
-                                    fontSize : 10,
+                                    show:false
                                 },
                                 radius : ['90%', '75%'],
                                 data:[
@@ -465,8 +510,11 @@ export default {
                                      length2 : 10,
                                    },
                                 },
+                                // label: {
+                                //    fontSize : 10,
+                                // },
                                 label: {
-                                   fontSize : 10,
+                                    show:false
                                 },
                                 radius : ['90%', '75%'],
                                 data:[
@@ -760,4 +808,6 @@ export default {
     text-align: center;font-size: 0.18rem;line-height: 0.4rem;}
     .cenTitle{text-align: center;margin: auto;width: 1.95rem;height: 0.37rem;font-size: 0.18rem;background-image:url(../assets/img/headerText.png);background-size: 100% 100%;line-height: 0.38rem;}
     .bigTitle{text-align: center;margin: auto;width: 2.75rem;height: 0.37rem;font-size: 0.18rem;background-image:url(../assets/img/headerText.png);background-size: 100% 100%;line-height: 0.38rem;}
+
+    .textCenter{display: block;width: 1rem;text-align: center;}
 </style>
