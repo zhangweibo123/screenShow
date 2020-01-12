@@ -16,9 +16,9 @@
               <div id="chartCenter" style="width: 3.2rem;height: 3.2rem;margin-top: 1.84rem;margin-left:2rem;float: left;"></div>
               <div  v-if="charData">
                    <span style="position: absolute;font-size: 0.25rem;top: 2.75rem;left: 3rem;">本周已完成</span>
-                   <span style="position: absolute;font-size: 0.2rem;top: 4.6rem;left:3rem;">周计划 :</span>
-                   <span class="textCenter" style="font-size: 0.64rem;;top: 3.1rem;left: 3.1rem;position: absolute;">{{charData.allWeekPlanMap.finished}}</span>
-                   <span style="position: absolute;font-size: 0.3rem;top: 4.54rem;left: 3.8rem;">{{charData.allWeekPlanMap.plan}}</span>
+                   <span style="position: absolute;font-size: 0.2rem;top: 4.6rem;left:2.9rem;">周计划 :</span>
+                   <span class="textCenter" style="font-size: 0.64rem;;top: 3.1rem;left: 2.9rem;position: absolute;">{{charData.allWeekPlanMap.finished}}</span>
+                   <span style="position: absolute;font-size: 0.26rem;top: 4.56rem;left: 3.7rem;">{{charData.allWeekPlanMap.plan}}</span>
               </div>
           </div>
           <div>
@@ -292,6 +292,7 @@ export default {
                   var z = 30*(x + y)/106
 
               }
+              console.log()
               chartCenter.setOption({
                   series: [
                             {
@@ -440,6 +441,25 @@ export default {
                             }
                       ]
              });
+             let bigchart1data = ''
+             if(self.charData.rejectRatioMap.C10.processReject.detailNumber.length == 0 && self.charData.rejectRatioMap.C10.workBlankReject.detailNumber.length == 0){
+               bigchart1data = [
+                  {value:1,itemStyle:{color:'#415695 '}},
+                 ]
+             }else{
+               bigchart1data = [
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.C10.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.C10.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.C10.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.C10.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.C10.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
+                                  {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
+                              ]
+             }
              bigchart1.setOption({
                   series: [
                             {
@@ -449,22 +469,29 @@ export default {
                                 label: {
                                     show:false
                                 },
-                                data:[
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.C10.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.C10.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.C10.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.C10.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.C10.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
-
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.C10.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.C10.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
-                                ]
+                                data:bigchart1data
                             }
                       ]
              });
+             let bigchart2data = ''
+             if(self.charData.rejectRatioMap.C13.processReject.detailNumber.length == 0 && self.charData.rejectRatioMap.C13.workBlankReject.detailNumber.length == 0){
+               bigchart2data = [
+                  {value:1,itemStyle:{color:'#415695 '}},
+                 ]
+             }else{
+               bigchart2data = [
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.C13.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.C13.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.C13.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.C13.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.C13.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
+                                 {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
+                              ]
+             }
              bigchart2.setOption({
                   series: [
                             {
@@ -483,22 +510,30 @@ export default {
                                     show:false
                                 },
                                 radius : ['90%', '75%'],
-                                data:[
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.C13.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.C13.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.C13.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.C13.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.C13.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
-
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
-                                   {value:parseInt(self.charData.rejectRatioMap.C13.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.C13.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
-                                ]
+                                data:bigchart2data
                             }
                       ]
              });
+             let bigchart3data = ''
+             if(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber.length == 0 && self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber.length == 0){
+               bigchart3data = [
+                  {value:1,itemStyle:{color:'#415695 '}},
+                 ]
+             }else{
+               bigchart3data = [
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
+
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
+                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
+                                ]
+             }
              bigchart3.setOption({
                   series: [
                             {
@@ -517,19 +552,7 @@ export default {
                                     show:false
                                 },
                                 radius : ['90%', '75%'],
-                                data:[
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[0]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[0],itemStyle:{color:'#6ae7fb '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[1]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[1],itemStyle:{color:'#b9eb78 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[2]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[2],itemStyle:{color:'#4190dd '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[3]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[3],itemStyle:{color:'#ecab35 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.processReject.detailNumber[4]), name:self.charData.rejectRatioMap.CSS45T3.processReject.detailType[4],itemStyle:{color:'#f9a62e '}},
-
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[0]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[0],itemStyle:{color:'#f5e120 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[1]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[1],itemStyle:{color:'#d43670 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[2]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[2],itemStyle:{color:'#0ed4ef '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[3]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[3],itemStyle:{color:'#25e7a0 '}},
-                                    {value:parseInt(self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailNumber[4]), name:self.charData.rejectRatioMap.CSS45T3.workBlankReject.detailType[4],itemStyle:{color:'#39a1c4 '}},
-                                ]
+                                data:bigchart3data
                             }
                       ]
              });
@@ -809,5 +832,5 @@ export default {
     .cenTitle{text-align: center;margin: auto;width: 1.95rem;height: 0.37rem;font-size: 0.18rem;background-image:url(../assets/img/headerText.png);background-size: 100% 100%;line-height: 0.38rem;}
     .bigTitle{text-align: center;margin: auto;width: 2.75rem;height: 0.37rem;font-size: 0.18rem;background-image:url(../assets/img/headerText.png);background-size: 100% 100%;line-height: 0.38rem;}
 
-    .textCenter{display: block;width: 1rem;text-align: center;}
+    .textCenter{display: block;width: 1.5rem;text-align: center;}
 </style>
